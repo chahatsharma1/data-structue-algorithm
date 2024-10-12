@@ -16,7 +16,7 @@ public class LeftView {
             for (int i = 0; i < levelSize; i++) {
                 TreeNode current = queue.poll();
                 if (i == 0){
-                    result.add(current.val);
+                    result.add(current.data);
                 }
                 if (current.left != null) {
                     queue.offer(current.left);
