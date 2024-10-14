@@ -18,5 +18,4 @@ public class BSTFromPreOrder {
 
         return node;
     }
-
 }
