@@ -1,9 +1,13 @@
 public class Node {
     int data;
-    Node left, right;
+    int hd;
+    Node left;
+    Node right;
 
     Node(int item) {
         data = item;
-        left = right = null;
+        hd = Integer.MAX_VALUE;
+        left = null;
+        right = null;
     }
 }
