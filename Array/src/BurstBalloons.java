@@ -1,8 +1,9 @@
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class BurstBalloons {
     public int findMinArrowShots(int[][] points) {
-        Arrays.sort(points, (a, b) -> Integer.compare(a[1], b[1]));
+        Arrays.sort(points, Comparator.comparingInt(a -> a[1]));
 
         int countArrow = 1;
         int currentArrow = points[0][1];
