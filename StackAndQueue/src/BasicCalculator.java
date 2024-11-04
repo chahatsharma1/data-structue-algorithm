@@ -1,7 +1,7 @@
 import java.util.Stack;
 
 public class BasicCalculator {
-    public int calculate(String s){
+    public int calculator(String s){
         Stack<Integer> stack = new Stack<>();
         int currentNumber = 0;
         int ans = 0;
