@@ -5,11 +5,11 @@ class WordDictionary {
         root = new TrieNode();
     }
 
-    public void addWord(String word) {
+    public void addWord(String word){
         TrieNode node = root;
-        for (char c : word.toCharArray()) {
+        for (char c : word.toCharArray()){
             int index = c - 'a';
-            if (node.children[index] == null) {
+            if (node.children[index] == null){
                 node.children[index] = new TrieNode();
             }
             node = node.children[index];
@@ -23,13 +23,17 @@ class WordDictionary {
 
     private boolean searchInNode(String word, int index, TrieNode node) {
 
-        if (node == null) return false;
-        if (index == word.length()) return node.isWord;
+        if (node == null) {
+            return false;
+        }
+
+        if (index == word.length()) {
+            return node.isWord;
+        }
 
         char c = word.charAt(index);
 
         if (c == '.') {
-            // Check all possible paths for '.' character
             for (TrieNode child : node.children) {
                 if (child != null && searchInNode(word, index + 1, child)) {
                     return true;
