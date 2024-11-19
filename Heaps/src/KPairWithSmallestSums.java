@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.util.*;
 
 class KPairWithSmallestSums {
     public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
@@ -11,7 +8,7 @@ class KPairWithSmallestSums {
             return ans;
         }
 
-        PriorityQueue<int[]> minHeap = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        PriorityQueue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
 
         for (int j = 0; j < nums2.length; j++){
             minHeap.add(new int[]{nums1[0] + nums2[j], 0, j});
@@ -19,7 +16,6 @@ class KPairWithSmallestSums {
 
         while (k > 0 && !minHeap.isEmpty()){
             int[] smallest = minHeap.poll();
-            int sum = smallest[0];
             int i = smallest[1];
             int j = smallest[2];
 
