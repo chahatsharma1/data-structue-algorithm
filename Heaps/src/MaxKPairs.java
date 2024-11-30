@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main {
+public class MaxKPairs {
     public static List<Integer> maxCombinations(int N, int K, int[] A, int[] B) {
         PriorityQueue<Integer> pq = new PriorityQueue<>();
         List<Integer> list = new ArrayList<>();
