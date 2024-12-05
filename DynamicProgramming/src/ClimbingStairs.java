@@ -13,10 +13,4 @@ public class ClimbingStairs {
         }
         return Math.min(dp[cost.length - 1], dp[cost.length - 2]);
     }
-
-    public static void main(String[] args) {
-        ClimbingStairs climbingStairs = new ClimbingStairs();
-        int[] cost = {1, 1, 0, 0};
-        System.out.println(climbingStairs.minCostClimbingStairs(cost));
-    }
 }
