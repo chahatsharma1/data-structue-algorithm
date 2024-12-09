@@ -1,4 +1,4 @@
-public class UniqueBSTs {
+public class UniqueBST {
     public int numTrees(int n) {
         int[] dp = new int[n + 1];
         dp[0] = 1;
