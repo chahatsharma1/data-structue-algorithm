@@ -8,14 +8,13 @@ public class ThreeLengthPalindrome {
             return 0;
         }
 
+        Set<String> set = new HashSet<>();
         Set<Character> left = new HashSet<>();
         int[] right = new int[26];
 
         for (char ch : s.toCharArray()){
             right[ch - 'a']++;
         }
-
-        Set<String> set = new HashSet<>();
 
         for (int i = 0; i < n; i++){
             char middle = s.charAt(i);
