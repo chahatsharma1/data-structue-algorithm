@@ -21,10 +21,4 @@ public class XORAllPairs {
         }
         return ans;
     }
-
-    public static void main(String[] args) {
-        int[] nums1 = {2,1,3};
-        int[] nums2 = {10,2,5,0};
-        System.out.println(xorAllNums(nums1, nums2));
-    }
 }
