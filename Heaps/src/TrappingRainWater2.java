@@ -1,5 +1,4 @@
 import java.util.PriorityQueue;
-
 public class TrappingRainWater2 {
     public int trapRainWater(int[][] heightMap) {
         if (heightMap == null){
