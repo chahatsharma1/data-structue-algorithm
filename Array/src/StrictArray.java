@@ -20,7 +20,6 @@ public class StrictArray {
             }
             longest = Math.max(longest, Math.max(incLen, decLen));
         }
-
         return longest;
     }
 }
