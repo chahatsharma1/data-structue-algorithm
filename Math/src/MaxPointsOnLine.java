@@ -19,26 +19,21 @@ public class MaxPointsOnLine {
                 int dy = points[j][1] - points[i][1];
 
                 if (dx == 0 && dy == 0) {
-                    // If both x and y differences are 0, it's a duplicate point
                     duplicate++;
                 } else if (dx == 0) {
-                    // If x difference is 0, it's a vertical line
                     vertical++;
-                    localMax = Math.max(localMax, vertical + 1); // +1 for the initial point
+                    localMax = Math.max(localMax, vertical + 1);
                 } else {
-                    // Reduce fraction using GCD
                     int gcd = gcd(dx, dy);
                     dx /= gcd;
                     dy /= gcd;
-                    
-                    // Store slope as a fraction (dy/dx)
+
                     String slope = dy + "/" + dx;
                     slopeMap.put(slope, slopeMap.getOrDefault(slope, 1) + 1);
                     localMax = Math.max(localMax, slopeMap.get(slope));
                 }
             }
 
-            // Consider duplicates and vertical lines
             maxPoints = Math.max(maxPoints, localMax + duplicate);
         }
 
