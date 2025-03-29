@@ -40,4 +40,35 @@ public class TargetSumRecursion {
             return max3 != null ? max3.intValue() : max1.intValue();
         }
     }
+
+    public static class CheckSortedRotated {
+        public boolean check(int[] nums) {
+            int countDrop = 0;
+            int n = nums.length;
+
+            for (int i = 0; i < n; i++) {
+                // Check for a drop in sorted order
+                if (nums[i] > nums[(i + 1) % n]) {
+                    countDrop++;
+                }
+
+                // If we find more than one drop, it's not a rotated sorted array
+                if (countDrop > 1) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public static void main(String[] args) {
+            CheckSortedRotated solution = new CheckSortedRotated();
+            int[] nums1 = {3, 4, 5, 1, 2};  // Rotated version of [1, 2, 3, 4, 5]
+            int[] nums2 = {2, 1, 3, 4};  // Not a rotated sorted array
+            int[] nums3 = {1, 2, 3, 4, 5};  // Already sorted (valid rotation with 0 shifts)
+
+            System.out.println(solution.check(nums1)); // true
+            System.out.println(solution.check(nums2)); // false
+            System.out.println(solution.check(nums3)); // true
+        }
+    }
 }
