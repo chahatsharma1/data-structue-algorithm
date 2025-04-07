@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,11 +25,5 @@ public class CommonArray {
             ans[i] = count;
         }
         return ans;
-    }
-
-    public static void main(String[] args) {
-        int[] A = {1, 3, 2, 4};
-        int[] B = {3, 1, 2, 4};
-        System.out.println(Arrays.toString(findThePrefixCommonArray(A, B)));
     }
 }
