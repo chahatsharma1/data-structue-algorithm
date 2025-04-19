@@ -1,4 +1,4 @@
-class SmallestDivisor {
+public class SmallestDivisor {
     public int smallestDivisor(int[] nums, int threshold) {
         int left = 1;
         int right = getMax(nums);
@@ -14,7 +14,6 @@ class SmallestDivisor {
                 left = mid + 1;
             }
         }
-
         return answer;
     }
 
