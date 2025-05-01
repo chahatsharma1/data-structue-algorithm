@@ -39,7 +39,6 @@ public class Solution {
         }
 
         for (int i = k - 1; i >= 0; --i) {
-
             Integer weakestSufficientWorker = availableStrongestWorkers.ceilingKey(tasks[i]);
 
             if (weakestSufficientWorker != null) {
