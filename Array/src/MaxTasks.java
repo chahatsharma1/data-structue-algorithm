@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.TreeMap;
 import java.util.Map;
 
-public class Solution {
+public class MaxTasks {
     public int maxTaskAssign(int[] tasks, int[] workers, int pills, int strength) {
         Arrays.sort(tasks);
         Arrays.sort(workers);
