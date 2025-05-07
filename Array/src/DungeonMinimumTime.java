@@ -10,7 +10,7 @@ public class DungeonMinimumTime {
             Arrays.fill(dist[i], Integer.MAX_VALUE);
         }
 
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
 
         dist[0][0] = 0;
         pq.offer(new int[]{0, 0, 0});
