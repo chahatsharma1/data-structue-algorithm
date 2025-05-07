@@ -1,47 +1,53 @@
 import java.util.*;
 
 public class DungeonMinimumTime {
-    public int minimumTime(int[][] moveTime) {
+    public int minTimeToReach(int[][] moveTime) {
         int n = moveTime.length;
         int m = moveTime[0].length;
 
-        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
-        pq.offer(new int[]{0, 0, 0});
-
-        int[][] minTime = new int[n][m];
-        for (int[] row : minTime) {
-            Arrays.fill(row, Integer.MAX_VALUE);
-            minTime[0][0] = 0;
+        int[][] dist = new int[n][m];
+        for (int i = 0; i < n; i++) {
+            Arrays.fill(dist[i], Integer.MAX_VALUE);
         }
 
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
 
-        int[][] directions = {{0,1}, {1,0}, {0,-1}, {-1,0}};
+        dist[0][0] = 0;
+        pq.offer(new int[]{0, 0, 0});
+
+        int[] dr = {-1, 1, 0, 0};
+        int[] dc = {0, 0, -1, 1};
 
         while (!pq.isEmpty()) {
-            int[] curr = pq.poll();
-            int time = curr[0];
-            int x = curr[1];
-            int y = curr[2];
+            int[] current = pq.poll();
+            int currentTime = current[0];
+            int r = current[1];
+            int c = current[2];
 
-            if (x == n - 1 && y == m - 1)
-                return time;
+            if (currentTime > dist[r][c]) {
+                continue;
+            }
 
-            for (int[] dir : directions) {
-                int nx = x + dir[0], ny = y + dir[1];
-                if (nx < 0 || nx >= n || ny < 0 || ny >= m)
-                    continue;
+            if (r == n - 1 && c == m - 1) {
+                return currentTime;
+            }
 
-                int newTime = time + 1;
-                if (newTime < moveTime[nx][ny]) {
-                    newTime = moveTime[nx][ny];
-                }
+            for (int i = 0; i < 4; i++) {
+                int nr = r + dr[i];
+                int nc = c + dc[i];
 
-                if (newTime < minTime[nx][ny]) {
-                    minTime[nx][ny] = newTime;
-                    pq.offer(new int[]{newTime, nx, ny});
+                if (nr >= 0 && nr < n && nc >= 0 && nc < m) {
+                    int startMoveTime = Math.max(currentTime, moveTime[nr][nc]);
+
+                    int arrivalTime = startMoveTime + 1;
+
+                    if (arrivalTime < dist[nr][nc]) {
+                        dist[nr][nc] = arrivalTime;
+                        pq.offer(new int[]{arrivalTime, nr, nc});
+                    }
                 }
             }
         }
-        return -1;
+        return dist[n - 1][m - 1] == Integer.MAX_VALUE ? -1 : dist[n - 1][m - 1];
     }
 }
