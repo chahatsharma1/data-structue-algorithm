@@ -39,7 +39,7 @@ public class DungeonMinimumTime2 {
                 if (nr >= 0 && nr < n && nc >= 0 && nc < m) {
                     int startMoveTime = Math.max(currentTime, moveTime[nr][nc]);
 
-                    int arrivalTime = startMoveTime + 1;
+                    int arrivalTime = startMoveTime + ((r + c) % 2 + 1);
 
                     if (arrivalTime < dist[nr][nc]) {
                         dist[nr][nc] = arrivalTime;
