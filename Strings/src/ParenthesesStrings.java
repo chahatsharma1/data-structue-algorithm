@@ -48,10 +48,4 @@ public class ParenthesesStrings {
         }
         return true;
     }
-
-    public static void main(String[] args) {
-        String s = "()";
-        String locked = "11";
-        System.out.println(canBeValid(s, locked));
-    }
 }

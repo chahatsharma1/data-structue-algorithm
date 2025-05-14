@@ -28,9 +28,4 @@ public class LongestPalindromicSubstring {
         }
         return right - left - 1;
     }
-
-    public static void main(String[] args) {
-        String s = "cbba";
-        System.out.println(longestPalindrome(s));
-    }
 }
