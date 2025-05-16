@@ -12,7 +12,6 @@ public class LongestUnequalSubsequence {
                 lastGroup = groups[i];
             }
         }
-
         return result;
     }
 }
