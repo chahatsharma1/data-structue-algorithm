@@ -21,9 +21,4 @@ class SimplifyPath {
 
         return !stringBuilder.isEmpty() ? stringBuilder.toString() : "/";
     }
-
-    public static void main(String[] args) {
-        String path = "/.../a/../b/c/../d/./";
-        System.out.println(simplifyPath(path));
-    }
 }
