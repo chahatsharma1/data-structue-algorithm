@@ -10,12 +10,12 @@ public class DistributeCandies {
         if (n < 0) {
             return 0;
         }
-        return nCk(n + 2, 2);
+        return nCk(n + 2);
     }
 
-    private long nCk(int n, int k) {
+    private long nCk(int n) {
          long res = 1;
-         for (int i = 1; i <= k; ++i) {
+         for (int i = 1; i <= 2; ++i) {
               res = res * (n - i + 1) / i;
          }
          return res;
