@@ -15,7 +15,10 @@ public class MinimumScoreAfterRemovalOfTree {
         in = new int[n];
         out = new int[n];
 
-        for (int i = 0; i < n; i++) tree[i] = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            tree[i] = new ArrayList<>();
+        }
+
         for (int[] e : edges) {
             tree[e[0]].add(e[1]);
             tree[e[1]].add(e[0]);
@@ -41,8 +44,9 @@ public class MinimumScoreAfterRemovalOfTree {
 
                 int x = e1[0];
                 int y = e2[0];
-
-                int a, b, c;
+                int a;
+                int b;
+                int c;
 
                 if (isAncestor(x, y)) {
                     a = xorSubtree[y];
@@ -63,7 +67,6 @@ public class MinimumScoreAfterRemovalOfTree {
                 res = Math.min(res, max - min);
             }
         }
-
         return res;
     }
 
@@ -71,7 +74,9 @@ public class MinimumScoreAfterRemovalOfTree {
         in[node] = time++;
         xorSubtree[node] = nums[node];
         for (int nei : tree[node]) {
-            if (nei == parent) continue;
+            if (nei == parent) {
+                continue;
+            }
             xorSubtree[node] ^= dfs(nei, node);
         }
         out[node] = time++;
