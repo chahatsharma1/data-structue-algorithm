@@ -2,8 +2,6 @@ import java.util.*;
 
 public class FruitBasketSwap {
     public long minCostToMakeBasketsEqual(int[] basket1, int[] basket2) {
-        int n = basket1.length;
-
         Map<Integer, Integer> countMap = new HashMap<>();
         for (int cost : basket1) {
             countMap.put(cost, countMap.getOrDefault(cost, 0) + 1);
