@@ -7,7 +7,7 @@ public class Subsets {
         helper(nums, answer, 0, new ArrayList<Integer>());
         return answer;
     }
-
+    
     private void helper(int[] nums, List<List<Integer>> answer, int index, List<Integer> current){
         answer.add(new ArrayList<>(current));
         for (int i = index; i < nums.length; i++){
