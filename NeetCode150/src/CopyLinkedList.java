@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-public class CopyLInkedList {
+public class CopyLinkedList {
     public Node copyRandomList(Node head) {
         if (head == null) {
             return null;
