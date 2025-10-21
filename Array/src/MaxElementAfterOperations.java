@@ -1,10 +1,31 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
 public class MaxElementAfterOperations {
-    public static int maximizeElement(int[] nums, int k, int numOperations) {
-        int max = Integer.MIN_VALUE;
+    public int maxFrequency(int[] nums, int k, int numOperations) {
+        int ans = 1;
+        int adjustable = 0;
+        Map<Integer, Integer> count = new HashMap<>();
+        TreeMap<Integer, Integer> line = new TreeMap<>();
+        TreeSet<Integer> candidates = new TreeSet<>();
 
         for (int num : nums) {
-            max = Math.max(max, num);
+            count.merge(num, 1, Integer::sum);
+            line.merge(num - k, 1, Integer::sum);
+            line.merge(num + k + 1, -1, Integer::sum);
+            candidates.add(num);
+            candidates.add(num - k);
+            candidates.add(num + k + 1);
         }
-        return max + k;
+
+        for (int num : candidates) {
+            adjustable += line.getOrDefault(num, 0);
+            int countNum = count.getOrDefault(num, 0);
+            int adjusted = adjustable - countNum;
+            ans = Math.max(ans, countNum + Math.min(numOperations, adjusted));
+        }
+        return ans;
     }
 }
